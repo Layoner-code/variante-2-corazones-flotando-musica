@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Te Amo ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      overflow: hidden;
+    }
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; }
+    p { font-size: 1.2em; max-width: 500px; margin: 20px auto; }
+    .play-btn {
+      background: white;
+      color: #ff4e50;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .corazon {
+      position: fixed;
+      bottom: -20px;
+      font-size: 24px;
+      animation: flotar 6s linear forwards;
+    }
+    @keyframes flotar {
+      to {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Para Ti 💖</h1>
+<h2>Juan & María</h2>
+
+<p>
+  Desde que llegaste a mi vida todo es mejor.  
+  Gracias por existir.
+</p>
+
+<button class="play-btn" onclick="playMusic()">▶ Escuchar música</button>
+
+<audio id="audio" src="musica.mp3"></audio>
+
+<script>
+function playMusic() {
+  document.getElementById("audio").play();
+}
+
+function crearCorazon() {
+  const c = document.createElement("div");
+  c.className = "corazon";
+  c.innerText = "❤️";
+  c.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(c);
+  setTimeout(() => c.remove(), 6000);
+}
+
+setInterval(crearCorazon, 500);
+</script>
+
+</body>
+</html>
